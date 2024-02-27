@@ -76,11 +76,24 @@ export default {
   methods: {
     sendMessage() {
       if (this.userMessage.trim() === "") return;
-
+      console.log(this.userMessage);
       // Send user message
       this.messages.push({ content: this.userMessage, from: "user" });
-      // Simulate bot response (replace this with actual bot response)
-      this.messages.push({ content: "This is a bot response.", from: "bot" });
+
+      // Send user message to backend
+      axios.post('/chat', { 
+        user_request: this.userMessage, 
+        is_reply: false, 
+        message: this.userMessage })
+        .then(response => {
+          // Handle successful response from backend
+          this.messages.push({ content: response.data, from: "bot" });
+        })
+        .catch(error => {
+          // Handle error
+          console.error('Error:', error);
+          this.messages.push({ content: "Error: Failed to fetch response from the server.", from: "bot" });
+        });
       this.userMessage = ""; // Clear input
       this.$nextTick(() => {
         this.scrollToBottom();
