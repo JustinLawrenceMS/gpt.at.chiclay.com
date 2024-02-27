@@ -55,4 +55,14 @@ export default {
   justify-content: center;
   align-items: center;
 }
+@media only screen and (max-device-width: 600px) {
+  #app {
+    margin-top: 0px;
+  }
+}
+@media only screen and (max-device-width: 1000px) {
+  #app {
+    margin-top: 0px;
+  }
+}
 </style>

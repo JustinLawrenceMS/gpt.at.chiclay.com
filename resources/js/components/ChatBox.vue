@@ -81,9 +81,9 @@ export default {
       this.messages.push({ content: this.userMessage, from: "user" });
 
       // Send user message to backend
-      axios.post('/chat', { 
-        user_request: this.userMessage, 
-        is_reply: false, 
+      axios.post('/chat', {
+        user_request: this.userMessage,
+        is_reply: false,
         message: this.userMessage })
         .then(response => {
           // Handle successful response from backend
@@ -185,10 +185,10 @@ export default {
 
 @media only screen and (max-device-width: 600px) {
   .chatbot {
-    width:  90%;
+    width:  90vw;
   }
   .chat-container {
-    height: auto;
+    height: 30vh;
   }
 }
 @media only screen and (max-device-width: 1000px) {
