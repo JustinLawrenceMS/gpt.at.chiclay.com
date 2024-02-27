@@ -1,6 +1,8 @@
-#justingpt-laravel
+# justingpt-laravel
+
 Hobby Website with Vue frontend for OpenAI API aka JustinGPT.  The backend is based on Jeffrey Way fun-with-ai repo.  The frontend uses an HTML template called Landscape by Pixelarity.  The Chatbox itself is based on a Vue component designed by ChatGPT.
 ## To install (local development)
+
 Prereqs: You need Docker installed and running, and you need PHP installed on your local machine (^8.1)
 
 Do this:
