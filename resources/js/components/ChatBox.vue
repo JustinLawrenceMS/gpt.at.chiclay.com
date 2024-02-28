@@ -125,6 +125,8 @@ export default {
   overflow-y: auto;
   padding: 10px;
   background-color: #fff;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
   border-color: #666;
   border-width: 2px;
   border-style: solid;
