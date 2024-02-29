@@ -4,9 +4,10 @@
     <header id="header">
       <nav id="nav">
         <ul>
-          <li>
+<!--          <li>
             <a href="#intro">Place<span class="extra">holder</span></a>
           </li>
+-->
 <!--
           <li>
             <a href="#one">First<span class="extra"> Section</span></a>
