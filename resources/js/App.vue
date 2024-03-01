@@ -2,30 +2,9 @@
 <template>
     <header id="header">
       <nav id="nav">
-        <ul>
-<!--          <li>
-            <a href="#intro">Place<span class="extra">holder</span></a>
-          </li>
--->
-<!--
-          <li>
-            <a href="#one">First<span class="extra"> Section</span></a>
-          </li>
-          <li>
-            <a href="#two">Second<span class="extra"> Section</span></a>
-          </li>
-          <li>
-            <a href="#three">Third<span class="extra"> Section</span></a>
-          </li>
-          <li>
-            <a href="#contact">Contact<span class="extra"> Us</span></a>
-          </li>
--->
-          <!--<li><a href="#elements">Elements</a></li>-->
-        </ul>
       </nav>
     </header>
-    <HelloWorld msg="Welcome to " />
+    <HelloWorld msg="welcome to " />
     <br />
     <ChatBox />
 </template>
@@ -44,7 +23,7 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Kode Mono";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
