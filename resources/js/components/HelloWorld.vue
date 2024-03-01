@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>{{ msg + this.appName }} </h1>
     <p>
       This is the scoobiest GPT of all the JustinGPTs<br>
       check out the
@@ -11,11 +11,19 @@
 
 <script>
 export default {
+  setup(){
+    const appName = import.meta.env.VITE_APP_NAME;
+
+    return {
+      appName,
+    }
+  },
   name: 'HelloWorld',
   props: {
-    msg: String
-  }
+    msg: String,
+  },
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
