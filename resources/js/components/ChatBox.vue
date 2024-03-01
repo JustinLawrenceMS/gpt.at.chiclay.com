@@ -177,14 +177,6 @@ export default {
   background-color: #fff;
   color: #2b2b2b;
 }
-
-.kode-mono-justingpt {
-  font-family: "Kode Mono", monospace;
-  font-optical-sizing: auto;
-  font-weight: bold;
-  font-style: normal;
-}
-
 @media only screen and (max-device-width: 600px) {
   .chatbot {
     width:  90vw;

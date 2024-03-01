@@ -2,8 +2,7 @@
   <div class="hello">
     <h1>{{ msg + this.appName }} </h1>
     <p>
-      This is the scoobiest GPT of all the JustinGPTs.<br>
-      Check out the
+      check out the
       <a href="https://linkedin.com/company/chiclay-s/" target="_blank" rel="noopener">Creators</a>.
     </p>
   </div>
