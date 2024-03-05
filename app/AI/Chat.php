@@ -2,6 +2,7 @@
 
 namespace App\AI;
 
+use Illuminate\Support\Facades\Storage;
 use OpenAI\Laravel\Facades\OpenAI;
 
 class Chat
@@ -14,6 +15,8 @@ class Chat
             'role' => 'system',
             'content' => $message
         ];
+
+        $this->setMessages();
 
         return $this;
     }
@@ -33,15 +36,19 @@ class Chat
         if ($response) {
             $this->messages[] = [
                 'role' => 'assistant',
-                'content' => $response
+                'content' => $response,
             ];
         }
+
+        $this->setMessages();
 
         return $response;
     }
 
     public function reply(string $message): ?string
     {
+        $this->setMessages();
+
         return $this->send($message);
     }
 
@@ -49,6 +56,16 @@ class Chat
     {
         return $this->messages;
     }
-}
 
-// $chat->send('Tell me a bedtime story.')
+    public function setMessages()
+    {
+        if (!Storage::disk('local')->exists('messages.json')) {
+            Storage::put('messages.json', json_encode($this->messages, JSON_PRETTY_PRINT));
+        } else {
+            $sess = Storage::json('messages.json', true);
+            $merge = array_merge($sess, $this->messages);
+            Storage::put('messages.json', json_encode($merge, JSON_PRETTY_PRINT));
+             $this->messages = Storage::json('messages.json', true);
+        }
+    }
+}
