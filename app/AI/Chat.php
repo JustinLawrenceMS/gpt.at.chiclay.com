@@ -23,6 +23,8 @@ class Chat
 
     public function send(string $message): ?string
     {
+        Storage::put('messages.json', "");
+
         $this->messages[] = [
             'role' => 'user',
             'content' => $message
@@ -65,7 +67,7 @@ class Chat
             $sess = Storage::json('messages.json', true);
             $merge = array_merge($sess, $this->messages);
             Storage::put('messages.json', json_encode($merge, JSON_PRETTY_PRINT));
-             $this->messages = Storage::json('messages.json', true);
+            $this->messages = Storage::json('messages.json', true);
         }
     }
 }
