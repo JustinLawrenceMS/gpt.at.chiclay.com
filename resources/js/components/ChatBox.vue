@@ -25,6 +25,7 @@
 
 <script>
 import { ref, onMounted, watch } from "vue";
+import { sessionizer } from './sessionizer.js';
 
 export default {
   setup() {
@@ -80,10 +81,11 @@ export default {
       // Send user message
       this.messages.push({ content: this.userMessage, from: "user" });
 
+      console.log(sessionizer.is_reply);
       // Send user message to backend
       axios.post('/chat', {
         user_request: this.userMessage,
-        is_reply: false,
+        is_reply: sessionizer.is_reply,
         message: this.userMessage })
         .then(response => {
           // Handle successful response from backend
@@ -94,6 +96,7 @@ export default {
           console.error('Error:', error);
           this.messages.push({ content: "Error: Failed to fetch response from the server.", from: "bot" });
         });
+      sessionizer.is_reply = true;
       this.userMessage = ""; // Clear input
       this.$nextTick(() => {
         this.scrollToBottom();
