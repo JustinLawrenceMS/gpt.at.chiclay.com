@@ -4,7 +4,7 @@
       <nav id="nav">
       </nav>
     </header>
-    <HelloWorld msg="welcome to " />
+    <HelloWorld msg="Welcome to " />
     <br />
     <ChatBox />
 </template>
