@@ -23,7 +23,7 @@ class Chat
 
     public function send(string $message): ?string
     {
-        Storage::put('messages.json', "");
+        Storage::put('messages.json', json_encode([]));
 
         $this->messages[] = [
             'role' => 'user',
@@ -61,13 +61,13 @@ class Chat
 
     public function setMessages()
     {
-        if (!Storage::disk('local')->exists('messages.json')) {
-            Storage::put('messages.json', json_encode($this->messages, JSON_PRETTY_PRINT));
+        if (!session('messages')) {
+            session(['messages' => json_encode($this->messages, JSON_PRETTY_PRINT)]);
         } else {
-            $sess = Storage::json('messages.json', true);
+            $sess = json_decode(session('messages'), true);
             $merge = array_merge($sess, $this->messages);
-            Storage::put('messages.json', json_encode($merge, JSON_PRETTY_PRINT));
-            $this->messages = Storage::json('messages.json', true);
+            session(['messages' => json_encode($merge, JSON_PRETTY_PRINT)]);
+            $this->messages = json_decode(session('messages'), true);
         }
     }
 }
