@@ -7,8 +7,8 @@ Prereqs: You need Docker installed and running, and you need PHP installed on yo
 
 Do this:
 ```
-git clone git@github.com:JustinLawrenceMS/justingpt-laravel
-cd justingpt-laravel
+git clone git@github.com:JustinLawrenceMS/upgrokk.com
+cd upgrokk.com
 ```
 Save the file .env.example as .env and add your OpenAI secret along with any desired environment variables.
 
