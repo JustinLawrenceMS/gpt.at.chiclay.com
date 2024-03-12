@@ -25,6 +25,7 @@
 
 <script>
 import { ref, onMounted, watch } from "vue";
+import { sessionizer } from './sessionizer.js';
 
 export default {
   setup() {
@@ -80,10 +81,11 @@ export default {
       // Send user message
       this.messages.push({ content: this.userMessage, from: "user" });
 
+      console.log(sessionizer.is_reply);
       // Send user message to backend
       axios.post('/chat', {
         user_request: this.userMessage,
-        is_reply: false,
+        is_reply: sessionizer.is_reply,
         message: this.userMessage })
         .then(response => {
           // Handle successful response from backend
@@ -94,6 +96,7 @@ export default {
           console.error('Error:', error);
           this.messages.push({ content: "Error: Failed to fetch response from the server.", from: "bot" });
         });
+      sessionizer.is_reply = true;
       this.userMessage = ""; // Clear input
       this.$nextTick(() => {
         this.scrollToBottom();
@@ -125,6 +128,8 @@ export default {
   overflow-y: auto;
   padding: 10px;
   background-color: #fff;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
   border-color: #666;
   border-width: 2px;
   border-style: solid;
@@ -175,14 +180,6 @@ export default {
   background-color: #fff;
   color: #2b2b2b;
 }
-
-.kode-mono-justingpt {
-  font-family: "Kode Mono", monospace;
-  font-optical-sizing: auto;
-  font-weight: bold;
-  font-style: normal;
-}
-
 @media only screen and (max-device-width: 600px) {
   .chatbot {
     width:  90vw;
