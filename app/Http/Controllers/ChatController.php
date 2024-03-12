@@ -12,15 +12,12 @@ class ChatController extends Controller
 
         if ($request->post('is_reply') === true) {
             $response = $chat->reply(
-                array_merge(
-                    $request->post('user_request'),
-                    $chat::messages
-                )
+                $request->post('user_request'),
             );
             return response()->json($response);
         } else {
             $response = $chat->send(
-                $request->post('user_request')
+                $request->post('user_request'),
             );
             return response()->json($response);
         }
