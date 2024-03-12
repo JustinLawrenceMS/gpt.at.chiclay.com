@@ -18,7 +18,7 @@ composer update
 php artisan sail:install
 ```
 
-Choose anything from the bash menu even though it is not used.
+Choose MySQL from the bash menu.
 
 Now do this:
 
@@ -29,6 +29,7 @@ Now do this:
 After the application loads, open another terminal and do this:
 ```
 ./vendor/bin/sail php artisan key:generate
+./vendor/bin/sail php artisan migrate
 ./vendor/bin/sail npm i --legacy-peer-deps
 ./vendor/bin/sail npm run build
 ```
