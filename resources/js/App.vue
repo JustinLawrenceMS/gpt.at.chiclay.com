@@ -1,6 +1,7 @@
 <!-- todo: fix indents.  Fix disappearing space bar on chatbox input -->
 <template>
-  <div id="app">
+    <link rel="shortcut icon" href="/testfavicon.ico"/>  
+    <div id="app">
     <header id="header">
       <nav id="nav">
         <ul>
@@ -28,7 +29,7 @@
     <HelloWorld msg="Welcome to JustinGPT" />
     <br />
     <ChatBox />
-  </div>
+  </div>  
 </template>
 
 <script>
