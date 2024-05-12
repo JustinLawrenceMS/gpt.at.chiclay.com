@@ -1,6 +1,5 @@
 <!-- todo: fix indents.  Fix disappearing space bar on chatbox input -->
 <template>
-    <link rel="shortcut icon" href="/testfavicon.ico"/>  
     <div id="app">
     <header id="header">
       <nav id="nav">
@@ -9,7 +8,7 @@
     <HelloWorld msg="Welcome to " />
     <br />
     <ChatBox />
-  </div>  
+  </div>
 </template>
 
 <script>
