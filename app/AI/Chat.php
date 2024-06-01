@@ -23,6 +23,8 @@ class Chat
 
     public function send(string $message): ?string
     {
+        Storage::put('messages.json', json_encode([]));
+
         $this->messages[] = [
             'role' => 'user',
             'content' => $message
