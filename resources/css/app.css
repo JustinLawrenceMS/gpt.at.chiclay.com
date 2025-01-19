@@ -1,4 +1,5 @@
 @import "main.css";
+@import "vue3-perfect-scrollbar/style.css";
 
 .kode-mono-justingpt {
   font-family: "Kode Mono", monospace;

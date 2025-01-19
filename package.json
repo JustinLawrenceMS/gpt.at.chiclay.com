@@ -16,8 +16,13 @@
         "vue": "^3.3.13"
     },
     "dependencies": {
-        "citation-js": "^0.7.15",
+        "@vitejs/plugin-vue": "^5.2.1",
+        "core-js": "^3.40.0",
+        "define": "^1.0.1",
         "jquery": "^3.7.1",
+        "vue": "*",
+        "vue-loader": "^17.4.2",
+        "vue-plugin-load-script": "^2.1.1",
         "vue3-perfect-scrollbar": "^2.0.0"
     }
 }

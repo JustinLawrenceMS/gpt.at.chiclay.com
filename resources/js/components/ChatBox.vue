@@ -1,6 +1,6 @@
 <template>
   <div class="chatbot">
-    <perfect-scrollbar class="chat-container" ref="chatContainer">
+    <PerfectScrollbar class="chat-container" ref="chatContainer">
       <div
         v-for="(message, index) in messages"
         :key="index"
@@ -12,7 +12,7 @@
           <span class="message-span kode-mono-justingpt">{{ message.content }}</span>
         </div>
       </div>
-    </perfect-scrollbar>
+    </PerfectScrollbar>
     <input
       type="text"
       v-model="userMessage"
@@ -26,7 +26,7 @@
 <script>
 import { ref, onMounted, watch } from "vue";
 import { sessionizer } from './sessionizer.js';
-
+import { PerfectScrollbarPlugin } from 'vue3-perfect-scrollbar';
 export default {
   setup() {
     const messageRefs = ref([]);
@@ -69,6 +69,9 @@ export default {
       setMessageRef
     };
   },
+components() {
+	PerfectScrollbar
+},
   data() {
     return {
       userMessage: "",

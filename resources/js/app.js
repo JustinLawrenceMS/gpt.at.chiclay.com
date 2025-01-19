@@ -12,7 +12,6 @@ import "./main.js";
 window.breakpoints = breakpoints;
 
 import { PerfectScrollbarPlugin } from 'vue3-perfect-scrollbar';
-import 'vue3-perfect-scrollbar/style.css';
 
 const app = createApp(App);
 app.use(PerfectScrollbarPlugin);
