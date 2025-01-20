@@ -2,8 +2,6 @@
 
 namespace App\AI;
 
-use Illuminate\Support\Facades\Storage;
-use OpenAI\Client;
 use OpenAI\Laravel\Facades\OpenAI;
 
 class Chat
@@ -30,7 +28,7 @@ class Chat
         ];
 
         $response = OpenAI::chat()->create([
-            "model"    => "gpt-3.5-turbo",
+            "model" => "gpt-3.5-turbo",
             "messages" => $this->messages
         ])->choices[0]->message->content;
 
@@ -60,25 +58,25 @@ class Chat
 
     public function setMessages(string $role, string $message): void
     {
-	    $this->messages[] = [
-		    'role' => $role,
-		    'content' => $message,
-	    ];
+        $this->messages[] = [
+            'role' => $role,
+            'content' => $message,
+        ];
     }
-public function setSession()
-{
-    if (!session('messages')) {
-        session(['messages' => json_encode($this->messages, JSON_PRETTY_PRINT)]);
-    } else {
-        $sess = json_decode(session('messages'), true);
-        $merge = array_merge($sess, $this->messages);
+    public function setSession()
+    {
+        if (!session('messages')) {
+            session(['messages' => json_encode($this->messages, JSON_PRETTY_PRINT)]);
+        } else {
+            $sess = json_decode(session('messages'), true);
+            $merge = array_merge($sess, $this->messages);
 
-        // Remove duplicates from the multidimensional array
-        $unique = array_map('unserialize', array_unique(array_map('serialize', $merge)));
+            // Remove duplicates from the multidimensional array
+            $unique = array_map('unserialize', array_unique(array_map('serialize', $merge)));
 
-        session(['messages' => json_encode($unique, JSON_PRETTY_PRINT)]);
-        $this->messages = json_decode(session('messages'), true);
+            session(['messages' => json_encode($unique, JSON_PRETTY_PRINT)]);
+            $this->messages = json_decode(session('messages'), true);
+        }
     }
-}
 
 }

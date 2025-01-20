@@ -58,7 +58,7 @@ class ChatTest extends TestCase
 
         $messages = $chat->getMessages();
 
-	dump($messages);
+        dump($messages);
         $this->assertCount(2, $messages);
         $this->assertEquals('user', $messages[0]['role']);
         $this->assertEquals('Hello AI!', $messages[0]['content']);
@@ -92,7 +92,7 @@ class ChatTest extends TestCase
 
         $sessionMessages = json_decode(session('messages'), true);
 
-	dump($sessionMessages);
+        dump($sessionMessages);
         $this->assertCount(1, $sessionMessages);
         $this->assertEquals('system', $sessionMessages[0]['role']);
         $this->assertEquals('System message content', $sessionMessages[0]['content']);
