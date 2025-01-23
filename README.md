@@ -1,4 +1,4 @@
-# www.chiclay.com
+# gpt.at.chiclay.com
 
 Hobby Website with Vue frontend for OpenAI API aka UpGrokk.Com.  The backend is based on Jeffrey Way's fun-with-ai repo.  The frontend uses an HTML template called Landscape by Pixelarity.  The Chatbox itself is based on a Vue component designed by ChatGPT.  See it <a target="_blank" href="https://chiclay.com">here</a>.
 ## To install (local development)
